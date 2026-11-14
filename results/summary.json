@@ -1,0 +1,15 @@
+{
+  "mode": "Demo (bundled CSV, no database)",
+  "overall": {
+    "employees": 1470,
+    "leavers": 237,
+    "rate_pct": 16.122448979591837,
+    "ci_low_pct": 14.33125454143761,
+    "ci_high_pct": 18.090242082971546
+  },
+  "logit_pseudo_r2": 0.24179273213341945,
+  "best_model_by_cv": "Logistic regression",
+  "holdout_size": 294,
+  "holdout_leavers": 47,
+  "pr_auc_random_baseline": 0.1598639455782313
+}

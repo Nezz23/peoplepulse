@@ -1,0 +1,37 @@
+-- One row per (fictional) employee. Survey and rating scales keep IBM's numeric codes; CHECKs enforce their ranges.
+CREATE SCHEMA IF NOT EXISTS hr;
+DROP TABLE IF EXISTS hr.employees;
+CREATE TABLE hr.employees (
+    employee_number            integer PRIMARY KEY,
+    age                        integer NOT NULL CHECK (age BETWEEN 18 AND 70),
+    attrition                  smallint NOT NULL CHECK (attrition IN (0, 1)),
+    business_travel            text NOT NULL CHECK (business_travel IN ('Non-Travel', 'Travel_Rarely', 'Travel_Frequently')),
+    daily_rate                 integer NOT NULL,
+    department                 text NOT NULL,
+    distance_from_home         integer NOT NULL CHECK (distance_from_home >= 0),
+    education                  smallint NOT NULL CHECK (education BETWEEN 1 AND 5),
+    education_field            text NOT NULL,
+    environment_satisfaction   smallint NOT NULL CHECK (environment_satisfaction BETWEEN 1 AND 4),
+    gender                     text NOT NULL,
+    hourly_rate                integer NOT NULL,
+    job_involvement            smallint NOT NULL CHECK (job_involvement BETWEEN 1 AND 4),
+    job_level                  smallint NOT NULL CHECK (job_level BETWEEN 1 AND 5),
+    job_role                   text NOT NULL,
+    job_satisfaction           smallint NOT NULL CHECK (job_satisfaction BETWEEN 1 AND 4),
+    marital_status             text NOT NULL,
+    monthly_income             integer NOT NULL CHECK (monthly_income > 0),
+    monthly_rate               integer NOT NULL,
+    num_companies_worked       integer NOT NULL CHECK (num_companies_worked >= 0),
+    over_time                  text NOT NULL CHECK (over_time IN ('Yes', 'No')),
+    percent_salary_hike        integer NOT NULL,
+    performance_rating         smallint NOT NULL CHECK (performance_rating BETWEEN 1 AND 4),
+    relationship_satisfaction  smallint NOT NULL CHECK (relationship_satisfaction BETWEEN 1 AND 4),
+    stock_option_level         smallint NOT NULL CHECK (stock_option_level BETWEEN 0 AND 3),
+    total_working_years        integer NOT NULL CHECK (total_working_years >= 0),
+    training_times_last_year   integer NOT NULL CHECK (training_times_last_year >= 0),
+    work_life_balance          smallint NOT NULL CHECK (work_life_balance BETWEEN 1 AND 4),
+    years_at_company           integer NOT NULL CHECK (years_at_company <= total_working_years),
+    years_in_current_role      integer NOT NULL CHECK (years_in_current_role <= years_at_company),
+    years_since_last_promotion integer NOT NULL CHECK (years_since_last_promotion <= years_at_company),
+    years_with_curr_manager    integer NOT NULL CHECK (years_with_curr_manager <= years_at_company)
+);
