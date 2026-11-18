@@ -121,8 +121,9 @@ a Postgres 17 service container and builds the Docker image.
 
 ## Deployment
 
-Not deployed yet. It is ready for Streamlit Community Cloud (main file `Home.py`, no secrets needed in demo mode):
-sign in at share.streamlit.io with GitHub, choose this repo, and deploy.
+Live on Streamlit Community Cloud: <https://peoplepulse-qqqhgssuz7vqxbze3wxvji.streamlit.app/> (main file `Home.py`,
+demo mode, no secrets). The app shows the model results that `python -m peoplepulse` writes to `results/`, rather than
+training on the free host, so pages open at once; rerun that command after changing the model.
 
 ## Limitations
 
